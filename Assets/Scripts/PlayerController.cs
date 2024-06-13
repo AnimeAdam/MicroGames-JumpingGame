@@ -8,8 +8,8 @@ public class PlayerController : MonoBehaviour
     private Animator playerAnim;
     private PlayerCheckIfOnGround checkOnGround;
 
-    private bool jumpingState = false;
-    private bool fallingState = false;
+    [SerializeField] private bool jumpingState = false;
+    [SerializeField] private bool fallingState = false;
     [SerializeField] private float jumpingSpeed = 600f;
 
     // Start is called before the first frame update
@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     {
         PressSpaceToJump();
         AnimateFalling();
-        // StopJumpingAnimation();
+        StopJumpingAnimation();
     }
 
     public void StopJumpingAnimation()
@@ -41,11 +41,11 @@ public class PlayerController : MonoBehaviour
     //Checks if player is falling then animates falling
     private void AnimateFalling()
     {
-        if (playerRb2D.velocity.y < 0f)
+        if (playerRb2D.velocity.y < 0f && jumpingState)
         {
             playerAnim.SetBool("player_jumping", false);
+            fallingState = true;
         }
-        fallingState = true;
     }
 
     //Presses space to jump and animates jumping up.
