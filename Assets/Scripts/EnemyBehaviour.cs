@@ -44,8 +44,10 @@ public class EnemyBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        SelectEnemyBehaviour();
+        if (!GameManager.Instance.playerIsDead){
+            timer += Time.deltaTime;
+            SelectEnemyBehaviour();
+        }
     }
 
     private void SelectEnemyBehaviour()

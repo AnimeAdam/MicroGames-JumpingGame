@@ -23,9 +23,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!GameManager.Instance.playerIsDead){
         PressSpaceToJump();
         AnimateFalling();
         StopJumpingAnimation();
+        }
     }
 
     public void StopJumpingAnimation()
@@ -56,6 +58,14 @@ public class PlayerController : MonoBehaviour
             playerRb2D.AddForce(Vector2.up * jumpingSpeed);
             playerAnim.SetBool("player_jumping", true);
             jumpingState = true;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.CompareTag("Enemy")) 
+        {
+            playerAnim.SetBool("player_dead", true);
+            GameManager.Instance.PlayerDied();
         }
     }
 }
