@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 0b17dfa6ff551a275923b7c0d97886ea
+  - enabled: 1
     path: Assets/Scenes/JumpingGame.unity
     guid: 674a0535de32a6ffa906ab93e8a68a73
   m_configObjects: {}

@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
         {
             playerAnim.SetBool("player_dead", true);
             GameManager.Instance.PlayerDied();
+            GameManager.Instance.ShowGameOver();
         }
     }
 }
