@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2076427869715595405}
   - component: {fileID: 8635742751403172826}
   - component: {fileID: 2801460529387155259}
-  - component: {fileID: 1123938768435527360}
+  - component: {fileID: 1925800761203034783}
   m_Layer: 0
   m_Name: Enemy_Easy
   m_TagString: Enemy
@@ -100,8 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 0
   speed: 0
---- !u!61 &1123938768435527360
-BoxCollider2D:
+--- !u!58 &1925800761203034783
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -132,16 +132,6 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
-    newSize: {x: 1.28, y: 1.28}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: -0.15161926, y: -0.0000009263141}
   serializedVersion: 2
-  m_Size: {x: 1.28, y: 1.28}
-  m_EdgeRadius: 0
+  m_Radius: 0.5042376

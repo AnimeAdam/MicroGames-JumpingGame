@@ -73,13 +73,13 @@ public class EnemyBehaviour : MonoBehaviour
     //Enemy will move to the left.
     void EasyEnemy()
     {
-        transform.Translate(Vector2.right * speed * Time.deltaTime);
+        transform.Translate(speed * Time.deltaTime * Vector2.right);
     }
 
     //Enemy will move to the left while spinnning.
     void MidEnemy()
     {
-        transform.Translate(Vector2.left * speed * Time.deltaTime, Space.World);
+        transform.Translate(speed * Time.deltaTime * Vector2.left, Space.World);
         transform.Rotate(Vector3.forward, rotateSpeed * Time.deltaTime, Space.Self);
     }
 
@@ -87,7 +87,7 @@ public class EnemyBehaviour : MonoBehaviour
     void HardEnemy()
     {
         if (timer <= timerLimitToStop && !stopEnemy)
-            transform.Translate(Vector2.left * speed * Time.deltaTime, Space.World);
+            transform.Translate(speed * Time.deltaTime * Vector2.left, Space.World);
         else if (!stopEnemy)
         {
             stopEnemy = true;
@@ -100,5 +100,14 @@ public class EnemyBehaviour : MonoBehaviour
         speed *= hardSpeedUp;
         stopEnemy = false;
         timer = 0f;
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("DeathZone"))
+        {            
+            GameManager.Instance.ShowWinning();
+            Destroy(gameObject);
+        }
     }
 }

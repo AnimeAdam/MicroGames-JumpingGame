@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     public bool playerIsDead { get; private set; }
 
-    public TextMeshProUGUI gameOverText;
+    public TextMeshProUGUI gameTitleText;
     public Button backToMenuButton;
 
     private void Awake()
@@ -54,8 +54,16 @@ public class GameManager : MonoBehaviour
 
     public void ShowGameOver()
     {
-        gameOverText = FindInActiveObjectByName("GameOverText").GetComponent<TextMeshProUGUI>();
-        gameOverText.gameObject.SetActive(true);
+        gameTitleText = FindInActiveObjectByName("GameOverText").GetComponent<TextMeshProUGUI>();
+        gameTitleText.gameObject.SetActive(true);
+        backToMenuButton = FindInActiveObjectByName("BackToMenuButton").GetComponent<Button>();
+        backToMenuButton.gameObject.SetActive(true);
+    }
+
+    public void ShowWinning()
+    {
+        gameTitleText = FindInActiveObjectByName("WinningText").GetComponent<TextMeshProUGUI>();
+        gameTitleText.gameObject.SetActive(true);
         backToMenuButton = FindInActiveObjectByName("BackToMenuButton").GetComponent<Button>();
         backToMenuButton.gameObject.SetActive(true);
     }
