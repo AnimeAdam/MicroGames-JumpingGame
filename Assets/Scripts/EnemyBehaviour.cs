@@ -9,6 +9,7 @@ public class EnemyBehaviour : MonoBehaviour
     public EnemyType enemyType;
 
     public float speed;
+    public AudioSource audioSource;
 
     //Medium enemy
     private const float rotateSpeed = 300f;
@@ -23,18 +24,21 @@ public class EnemyBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // rb2D = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
         switch (enemyType)
         {
             case EnemyType.Easy:
                 speed = 7.0f;
+                PlayEasyAudio();
             break;
             case EnemyType.Medium:
                 speed = 13.0f;
+                PlayMediumAudio();
             break;
             case EnemyType.Hard:
                 speed = 15.0f;
                 stopEnemy = false;
+                PlayHardStartUpAudio();
             break;
             default:
             break;
@@ -48,6 +52,8 @@ public class EnemyBehaviour : MonoBehaviour
             timer += Time.deltaTime;
             SelectEnemyBehaviour();
         }
+        else
+            audioSource.Stop();
     }
 
     private void SelectEnemyBehaviour()
@@ -91,12 +97,14 @@ public class EnemyBehaviour : MonoBehaviour
         else if (!stopEnemy)
         {
             stopEnemy = true;
+            audioSource.Stop();
             Invoke("HardEnemyMovesAgain", timerStoppingTime);
         }
     }
 
     void HardEnemyMovesAgain()
     {
+        PlayHardRunningAudio();
         speed *= hardSpeedUp;
         stopEnemy = false;
         timer = 0f;
@@ -107,7 +115,43 @@ public class EnemyBehaviour : MonoBehaviour
         if (col.gameObject.CompareTag("DeathZone"))
         {            
             GameManager.Instance.ShowWinning();
+            audioSource.Stop();
             Destroy(gameObject);
         }
     }
+
+    #region Audio
+
+    void PlayEasyAudio()
+    {
+        audioSource.clip = FindAnyObjectByType<SoundManager>().audioSoundClips[2];
+        audioSource.loop = true;
+        audioSource.volume = 0.3f;
+        audioSource.Play();
+    }
+
+    void PlayMediumAudio()
+    {
+        audioSource.clip = FindAnyObjectByType<SoundManager>().audioSoundClips[3];
+        audioSource.loop = true;
+        audioSource.volume = 0.3f;
+        audioSource.Play();
+    }
+
+    void PlayHardStartUpAudio()
+    {
+        audioSource.clip = FindAnyObjectByType<SoundManager>().audioSoundClips[4];
+        audioSource.volume = 0.3f;
+        audioSource.Play();
+    }
+
+    void PlayHardRunningAudio()
+    {
+        audioSource.clip = FindAnyObjectByType<SoundManager>().audioSoundClips[5];
+        audioSource.loop = true;
+        audioSource.volume = 0.3f;
+        audioSource.Play();
+    }
+
+    #endregion Audio
 }

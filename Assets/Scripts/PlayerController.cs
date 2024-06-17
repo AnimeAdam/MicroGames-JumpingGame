@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     private Animator playerAnim;
     private PlayerCheckIfOnGround checkOnGround;
 
+    private AudioSource audioSource;
+
     [SerializeField] private bool jumpingState = false;
     [SerializeField] private bool fallingState = false;
     [SerializeField] private float jumpingSpeed = 600f;
@@ -18,6 +20,7 @@ public class PlayerController : MonoBehaviour
         playerRb2D = GetComponent<Rigidbody2D>();
         playerAnim = GetComponent<Animator>();
         checkOnGround = GetComponentInChildren<PlayerCheckIfOnGround>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -58,6 +61,7 @@ public class PlayerController : MonoBehaviour
             playerRb2D.AddForce(Vector2.up * jumpingSpeed);
             playerAnim.SetBool("player_jumping", true);
             jumpingState = true;
+            PlayJumpSound();
         }
     }
 
@@ -65,8 +69,25 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy")) 
         {
             playerAnim.SetBool("player_dead", true);
+            PlayDeathSound();
             GameManager.Instance.PlayerDied();
             GameManager.Instance.ShowGameOver();
         }
     }
+
+    #region Audio
+
+    void PlayJumpSound()
+    {
+        audioSource.clip = FindAnyObjectByType<SoundManager>().audioSoundClips[0];
+        audioSource.Play();
+    }
+
+    void PlayDeathSound()
+    {
+        audioSource.clip = FindAnyObjectByType<SoundManager>().audioSoundClips[1];
+        audioSource.Play();
+    }
+
+    #endregion Audio
 }
