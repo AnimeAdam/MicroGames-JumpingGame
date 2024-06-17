@@ -1069,6 +1069,7 @@ GameObject:
   - component: {fileID: 1735832502}
   - component: {fileID: 1735832501}
   - component: {fileID: 1735832500}
+  - component: {fileID: 1735832503}
   m_Layer: 5
   m_Name: BackToMenuButton
   m_TagString: Untagged
@@ -1140,7 +1141,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1398993937719897730}
+      - m_Target: {fileID: 1735832503}
         m_TargetAssemblyTypeName: SceneManager, Assembly-CSharp
         m_MethodName: BackToMenu
         m_Mode: 1
@@ -1190,6 +1191,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1735832498}
   m_CullTransparentMesh: 1
+--- !u!114 &1735832503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735832498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 185356dea2fc262bea1d883f2cb66111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1773112002
 GameObject:
   m_ObjectHideFlags: 0
@@ -1320,86 +1333,6 @@ MonoBehaviour:
   jumpingState: 0
   fallingState: 0
   jumpingSpeed: 600
---- !u!1001 &1398993937719897729
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3837675698574837176, guid: fc8b0620681c23548b9665e555f9f856, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3837675698574837176, guid: fc8b0620681c23548b9665e555f9f856, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3837675698574837176, guid: fc8b0620681c23548b9665e555f9f856, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3837675698574837176, guid: fc8b0620681c23548b9665e555f9f856, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3837675698574837176, guid: fc8b0620681c23548b9665e555f9f856, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3837675698574837176, guid: fc8b0620681c23548b9665e555f9f856, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3837675698574837176, guid: fc8b0620681c23548b9665e555f9f856, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3837675698574837176, guid: fc8b0620681c23548b9665e555f9f856, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3837675698574837176, guid: fc8b0620681c23548b9665e555f9f856, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3837675698574837176, guid: fc8b0620681c23548b9665e555f9f856, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6509423977371674744, guid: fc8b0620681c23548b9665e555f9f856, type: 3}
-      propertyPath: m_Name
-      value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 7132444924692699409, guid: fc8b0620681c23548b9665e555f9f856, type: 3}
-      propertyPath: gameOverText
-      value: 
-      objectReference: {fileID: 1232024948}
-    - target: {fileID: 7132444924692699409, guid: fc8b0620681c23548b9665e555f9f856, type: 3}
-      propertyPath: gameDifficulty
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7132444924692699409, guid: fc8b0620681c23548b9665e555f9f856, type: 3}
-      propertyPath: backToMenuButton
-      value: 
-      objectReference: {fileID: 1735832500}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: fc8b0620681c23548b9665e555f9f856, type: 3}
---- !u!114 &1398993937719897730 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7075064119667820008, guid: fc8b0620681c23548b9665e555f9f856, type: 3}
-  m_PrefabInstance: {fileID: 1398993937719897729}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 185356dea2fc262bea1d883f2cb66111, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1864658933274117051
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1483,7 +1416,6 @@ SceneRoots:
   - {fileID: 1864658933274117051}
   - {fileID: 304102564}
   - {fileID: 1087934582}
-  - {fileID: 1398993937719897729}
   - {fileID: 202214459}
   - {fileID: 1402971414}
   - {fileID: 1773112004}

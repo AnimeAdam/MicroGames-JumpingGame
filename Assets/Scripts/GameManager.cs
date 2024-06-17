@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 using GameDifficulty = Difficulty.difficulty;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -50,6 +50,12 @@ public class GameManager : MonoBehaviour
     void StartGame()
     {
         playerIsDead = false;
+    }
+
+    public void SetDifficulty(GameDifficulty difficulty)
+    {
+        gameDifficulty = difficulty;
+        StartGame();
     }
 
     public void ShowGameOver()
